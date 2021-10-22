@@ -1,0 +1,859 @@
+{
+  "title": "com.google.chrome.startup",
+  "description": "Google Chrome Startup Preferences",
+  "__preferencedomain": "com.google.Chrome",
+  "properties": {
+    "NewTabPageLocation": {
+      "title": "Landing Home Page for new Tabs",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NewTabPageLocation"
+        }
+      ],
+      "description": "Configures the default New Tab page URL and prevents users from changing it",
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "ForcedLanguages": {
+      "title": "Forced Languages",
+      "description": "This policy allows admins to configure the order of the preferred languages in Google Chrome's settings.",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://chromeenterprise.google/policies/?policy=ForcedLanguages"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "Language"
+          }
+        }
+      ]
+    },
+    "ExtensionSettings": {
+      "title": "Extensions Settings",
+      "type": "object",
+      "description": "By default, this defines Extension settings for all extensions. If you need to specificy specific extension permissions add them as unique JSON objects",
+      "properties": {
+        "*": {
+          "properties": {
+            "allowed_types": {
+              "title": "Allowed Extension Types",
+              "description": "extension, hosted_app, legacy_packaged_app, platform_app, theme, user_script are supported",
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "title": "Extension Type"
+                  }
+                }
+              ]
+            },
+            "blocked_install_message": {
+              "title": "Blocked Install Message",
+              "type": "string"
+            },
+            "blocked_permissions": {
+              "title": "Blocked API Permissions",
+              "links": [
+                {
+                  "rel": "Documentation Link",
+                  "href": "https://developer.chrome.com/docs/extensions/mv2/declare_permissions/"
+                }
+              ],
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "title": "Permission"
+                  }
+                }
+              ]
+            },
+            "install_sources": {
+              "title": "Extension Install Sources",
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "title": "URL Pattern"
+                  }
+                }
+              ]
+            },
+            "installation_mode": {
+              "title": "Installation Mode",
+              "enum": [
+                "blocked",
+                "allowed",
+                "removed",
+                "force_installed",
+                "normal_installed"
+              ],
+              "type": "string"
+            },
+            "minimum_version_required": {
+              "title": "Minimum Version Required",
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "string",
+                  "options": {
+                    "inputAttributes": {
+                      "placeholder": "1.1"
+                    }
+                  }
+                }
+              ]
+            },
+            "update_url": {
+              "title": "Update URL",
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "string",
+                  "options": {
+                    "inputAttributes": {
+                      "placeholder": "https://clients2.google.com/service/update2/crx"
+                    }
+                  }
+                }
+              ]
+            },
+            "runtime_allowed_hosts": {
+              "title": "Allow Extension Interaction with Websites",
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "title": "URL Pattern"
+                  }
+                }
+              ]
+            },
+            "runtime_blocked_hosts": {
+              "title": "Prevent Extension Interaction with Websites",
+              "anyOf": [
+                {
+                  "type": "null",
+                  "title": "Not Configured"
+                },
+                {
+                  "title": "Configured",
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "title": "URL Pattern"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "PopupsAllowedForUrls": {
+      "title": "Allow popups on these sites",
+      "description": "Allows you to set a list of url patterns that specify sites which are allowed to open popups",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=PopupsAllowedForUrls"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "URL Pattern",
+            "options": {
+              "inputAttributes": {
+                "placeholder": "[*.]example.com"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ShowAppsShortcutInBookmarkBar": {
+      "title": "Show the apps shortcut in the bookmark bar",
+      "description": "Enables or disables the apps shortcut in the bookmark bar",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowAppsShortcutInBookmarkBar"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "ProxySettings": {
+      "type": "object",
+      "title": "Proxy settings",
+      "description": "Setting the policy configures the proxy settings for Chrome and ARC-apps, which ignore all proxy-related options specified from the command line",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ProxySettings"
+        }
+      ],
+      "properties": {
+        "ProxyMode": {
+          "title": "Proxy Mode",
+          "description": "Sets the proxy mode",
+          "type": "string"
+        }
+      }
+    },
+    "NotificationsAllowedForUrls": {
+      "title": "Allow notifications on these sites",
+      "description": "Allows you to set a list of url patterns that specify sites which are allowed to display notifications.",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=NotificationsAllowedForUrls"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "URL Pattern",
+            "options": {
+              "inputAttributes": {
+                "placeholder": "[*.]example.com"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "InsecureContentAllowedForUrls": {
+      "title": "Allow Insecure Content on these sites",
+      "description": "Allows you to set a list of url patterns that specify sites which are allowed to display blockable (i.e. active) mixed content (i.e. HTTP content on HTTPS sites) and for which optionally blockable mixed content upgrades will be disabled",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=InsecureContentAllowedForUrls"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "URL Pattern",
+            "options": {
+              "inputAttributes": {
+                "placeholder": "[*.]example.com"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "HardwareAccelerationModeEnabled": {
+      "title": "Use hardware acceleration when available",
+      "description": "If this policy is set to true or left unset, hardware acceleration will be enabled unless a certain GPU feature is blacklisted",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=HardwareAccelerationModeEnabled"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "ForceGoogleSafeSearch": {
+      "title": "Force Google SafeSearch",
+      "description": "Forces queries in Google Web Search to be done with SafeSearch set to active and prevents users from changing this setting",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ForceGoogleSafeSearch"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "DefaultNotificationsSetting": {
+      "title": "Default Notifications setting",
+      "description": "Allows you to set whether websites are allowed to display desktop notifications. 1 = Allow sites to show desktop notifications 2 = Do not allow any site to show desktop notifications 3 = Ask every time a site wants to show desktop notifications",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultNotificationsSetting"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "enum_titles": [
+            1,
+            2,
+            3
+          ],
+          "default": 1
+        }
+      ]
+    },
+    "DefaultBrowserSettingEnabled": {
+      "title": "Set Google Chrome as Default Browser",
+      "description": "Configures the default browser checks in Google Chrome and prevents users from changing them. If you enable this setting, Google Chrome will always check on startup whether it is the default browser and automatically register itself if possible",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultBrowserSettingEnabled"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "ComponentUpdatesEnabled": {
+      "title": "Enable Component Updates in Google Chrome",
+      "description": "Enables component updates for all components in Google Chrome when not set or set to True",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ComponentUpdatesEnabled"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "CloudPrintProxyEnabled": {
+      "title": "Enable Google Cloud Print proxy",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=CloudPrintProxyEnabled"
+        }
+      ],
+      "description": "Enables Google Chrome to act as a proxy between Google Cloud Print and legacy printers connected to the machine",
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "DefaultSearchProviderSearchURL": {
+      "title": "Default Search Provider Search URL",
+      "description": "Specifies the URL of the search engine used when doing a default search. The URL should contain the string '{searchTerms}', which will be replaced at query time by the terms the user is searching for",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultSearchProviderSearchURL"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "DefaultSearchProviderName": {
+      "title": "Default Search Provider Name",
+      "description": "Specifies the name of the default search provider",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultSearchProviderName"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "DefaultSearchProviderKeyword": {
+      "title": "Default Search Provider Keyword",
+      "description": "Specifies the keyword, which is the shortcut used in the omnibox to trigger the search for this provider",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultSearchProviderKeyword"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "DefaultSearchProviderEnabled": {
+      "title": "Enable the Default Search Provider",
+      "description": "Enables the use of a default search provider. If you enable this setting, a default search is performed when the user types text in the omnibox that is not a URL",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultSearchProviderEnabled"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "DefaultSearchProviderSuggestURL": {
+      "title": "Default Search Provider suggest URL",
+      "description": "Specifies the URL of the search engine used to provide search suggestions. The URL should contain the string '{searchTerms}', which will be replaced at query time by the text the user has entered so far",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=DefaultSearchProviderSuggestURL"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "ExtensionInstallAllowlist": {
+      "title": "Configure extension installation allow list",
+      "description": "(ExtensionInstallAllowlist)-etting the policy specifies which extensions are not subject to the blocklist. A blocklist value of * means all extensions are blocked and users can only install extensions listed in the allow list. By default, all extensions are allowed. But, if you prohibited extensions by policy, use the list of allowed extensions to change that policy",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallAllowlist"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "Extension ID"
+          }
+        }
+      ]
+    },
+    "ExtensionInstallBlocklist": {
+      "title": "Configure extension installation blocklist",
+      "description": "(ExtensionInstallBlocklist)-Allows you to specify which extensions the users can NOT install. Extensions already installed will be disabled if blocked, without a way for the user to enable them. Once an extension disabled due to the blocklist is removed from it, it will automatically get re-enabled. A blocklist value of '*' means all extensions are blocked unless they are explicitly listed in the allowlist. If this policy is left not set the user can install any extension in Google Chrome",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ExtensionInstallBlocklist"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "Extension ID"
+          }
+        }
+      ]
+    },
+    "ShowHomeButton": {
+      "title": "Show Home button on toolbar",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=ShowHomeButton"
+        }
+      ],
+      "description": "Shows the Home button on Google Chrome's toolbar",
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "HomepageIsNewTabPage": {
+      "title": "Use New Tab Page as homepage",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=HomepageIsNewTabPage"
+        }
+      ],
+      "description": "Configures the type of the default home page in Google Chrome and prevents users from changing home page preferences. The home page can either be set to a URL you specify or set to the New Tab Page",
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "HomepageLocation": {
+      "title": "Configure the home page URL",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=HomepageLocation"
+        }
+      ],
+      "description": "Configures the default home page URL in Google Chrome and prevents users from changing it",
+      "options": {
+        "inputAttributes": {
+          "placeholder": "https://apple.com"
+        }
+      },
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "AbusiveExperienceInterventionEnforce": {
+      "title": "Abusive Experience Intervention Enforce",
+      "description": "Allows you to set whether sites with abusive experiences should be prevented from opening new windows or tabs",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AbusiveExperienceInterventionEnforce"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "AdsSettingForIntrusiveAdsSites": {
+      "title": "Ads setting for sites with intrusive ads",
+      "description": "Allows you to set whether ads should be blocked on sites with intrusive ads. 1 = Allow ads on all sites 2 = Do not allow ads on sites with intrusive ads",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AdsSettingForIntrusiveAdsSites"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer",
+          "enum": [
+            1,
+            2
+          ],
+          "enum_titles": [
+            1,
+            2
+          ],
+          "default": 1
+        }
+      ]
+    },
+    "AlwaysOpenPdfExternally": {
+      "title": "Always Open PDF files externally",
+      "description": "Disables the internal PDF viewer in Google Chrome. Instead it treats it as download and allows the user to open PDF files with the default application",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AlwaysOpenPdfExternally"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "AllowDinosaurEasterEgg": {
+      "title": "Allow Dinosaur Easter Egg Game",
+      "description": "Allow users to play dinosaur easter egg game when device is offline",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AllowDinosaurEasterEgg"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "RestoreOnStartup": {
+      "title": "Action on startup",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=RestoreOnStartup"
+        }
+      ],
+      "description": "Allows you to specify the behavior on startup. 5 = Open New Tab Page 1 = Restore the last session 4 = Open a list of URLs",
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer"
+        }
+      ]
+    },
+    "RestoreOnStartupURLs": {
+      "title": "URLs to open on startup",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=RestoreOnStartupURLs"
+        }
+      ],
+      "description": "If 'Open a list of URLs' is selected as the startup action, this allows you to specify the list of URLs that are opened. If left not set no URL will be opened on start up",
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "title": "URL"
+          }
+        }
+      ]
+    },
+    "AutofillAddressEnabled": {
+      "title": "Enable AutoFill for addresses",
+      "description": "Enables Google Chrome's AutoFill feature and allows users to auto complete address information in web forms using previously stored information",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=AutofillAddressEnabled"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "SafeBrowsingProtectionLevel": {
+      "title": "Safe Browsing Protection Level",
+      "description": "(SafeBrowsingProtectionLevel)-Allows you to control whether Google Chrome's Safe Browsing feature is enabled and the mode it operates in. If this policy is set to 'NoProtection' (value 0), Safe Browsing is never active. If this policy is set to 'StandardProtection' (value 1, which is the default), Safe Browsing is always active in the standard mode. If this policy is set to 'EnhancedProtection' (value 2), Safe Browsing is always active in the enhanced mode, which provides better security, but requires sharing more browsing information with Google",
+      "links": [
+        {
+          "rel": "Documentation Link",
+          "href": "https://cloud.google.com/docs/chrome-enterprise/policies/?policy=SafeBrowsingProtectionLevel"
+        }
+      ],
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer",
+          "options": {
+            "enum_titles": [
+              "Safe Browsign is Never Active",
+              "Safe Browsing Active in Standard Mode",
+              "Safe Browsing Active in Enhanced Mode"
+            ]
+          },
+          "enum": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  }
+}
