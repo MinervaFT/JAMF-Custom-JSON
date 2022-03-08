@@ -1,0 +1,94 @@
+{
+  "title": "com.apple.Safari",
+  "description": "Safari ",
+  "properties": {
+    "HomePage": {
+      "title": "HomePage",
+      "description": "",
+      "property_order": 5,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "NewWindowBehavior": {
+      "title": "NewWindowBehavior",
+      "description": "Contents of new windows. 1 = Empty, 2 = Same Page, 3 = Start Page, 0 = Home page",
+      "property_order": 10,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer",
+          "options": {
+            "enum_titles": [
+              "1",
+              "2",
+              "3",
+              "0"
+            ]
+          },
+          "enum": [
+            1,
+            2,
+            3,
+            0
+          ]
+        }
+      ]
+    },
+    "NewTabBehavior": {
+      "title": "NewTabBehavior",
+      "description": "Contents of new tabs. 1 = Empty, 2 = Same Page, 3 = Start Page, 0 = Home page",
+      "property_order": 15,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer",
+          "options": {
+            "enum_titles": [
+              "1",
+              "2",
+              "3",
+              "0"
+            ]
+          },
+          "enum": [
+            1,
+            2,
+            3,
+            0
+          ]
+        }
+      ]
+    },
+    "AutoOpenSafeDownloads": {
+      "title": "AutoOpenSafeDownloads",
+      "description": "Safe files include movies, pictures, sounds, PDF and text documents, and archives",
+      "property_order": 20,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    }
+  }
+}
