@@ -1,0 +1,91 @@
+{
+  "title": "com.papercut.printdeploy.client",
+  "description": "",
+  "properties": {
+    "skip_dpm": {
+      "title": "skip_dpm",
+      "description": "",
+      "property_order": 5,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "server_host": {
+      "title": "server_host",
+      "description": "",
+      "property_order": 10,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "strictSSL": {
+      "title": "strictSSL",
+      "description": "",
+      "property_order": 15,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "serverPort": {
+      "title": "serverPort",
+      "description": "",
+      "property_order": 20,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string"
+        }
+      ]
+    },
+    "serverScheme": {
+      "title": "serverScheme",
+      "description": "",
+      "property_order": 25,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "string",
+          "options": {
+            "enum_titles": [
+              "https",
+              "http"
+            ]
+          },
+          "enum": [
+            "https",
+            "http"
+          ]
+        }
+      ]
+    }
+  }
+}
