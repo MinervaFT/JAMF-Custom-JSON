@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AutomaticUploadBandwidthPercentage</key>
+	<integer>50</integer>
+	<key>BlockExternalSync</key>
+	<true/>
+	<key>DefaultFolderLocation</key>
+	<array>
+		<dict>
+			<key>DefaultFolderPath</key>
+			<string></string>
+			<key>TenantID</key>
+			<string>REDACTED</string>
+		</dict>
+	</array>
+	<key>DisableHydrationToast</key>
+	<true/>
+	<key>DisablePersonalSync</key>
+	<true/>
+	<key>DisableTutorial</key>
+	<true/>
+	<key>EnableAddAccounts</key>
+	<true/>
+	<key>EnableAllOcsiClients</key>
+	<true/>
+	<key>FilesOnDemandEnabled</key>
+	<true/>
+	<key>HideDockIcon</key>
+	<true/>
+	<key>IsHydrationToastAllowed</key>
+	<false/>
+	<key>KFMBlockOptIn</key>
+	<integer>0</integer>
+	<key>KFMBlockOptOut</key>
+	<true/>
+	<key>KFMSilentOptIn</key>
+	<string>REDACTED</string>
+	<key>KFMSilentOptInDesktop</key>
+	<true/>
+	<key>KFMSilentOptInDocuments</key>
+	<true/>
+	<key>KFMSilentOptInWithNotification</key>
+	<true/>
+	<key>OpenAtLogin</key>
+	<true/>
+</dict>
+</plist>
