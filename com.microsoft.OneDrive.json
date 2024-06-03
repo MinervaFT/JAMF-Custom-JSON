@@ -1,11 +1,10 @@
 {
   "title": "com.microsoft.OneDrive (Standalone)",
-  "description": "Preference Domain: com.microsoft.OneDrive (Standalone) or com.microsoft.OneDrive-mac (Mac App Store)",
-  "__feedback": "Post comment",
-  "properties": {
+  "description": "Preference Domain: com.microsoft.OneDrive (Standalone)",
+   "properties": {
     "AllowTenantList": {
       "title": "Allowed Tenants List",
-      "description": "Prevents users uploading files to other organizations by specifying allowed tenant IDs. If account has already been setup, files stop syncing. Takes priority over setting Block syncing OneDrive accounts for specific organizations setting.",
+      "description": "This setting prevents the users from uploading files to other organizations by specifying a list of allowed tenant IDs. If you enable this setting, the user gets an error if they attempt to add an account from an organization that isn't in the allowed tenants list. If the user has already added the account, the files stop syncing. This setting takes priority over Block syncing OneDrive accounts for specific organizations setting. Do NOT enable both settings at the same time.",
       "property_order": 5,
       "type": "array",
       "items": {
@@ -14,7 +13,7 @@
         "properties": {
           "TenantID": {
             "title": "Tenant ID",
-            "default": "Your tenant ID here",
+            "default": "e.g. 0344bcc1-e70b-4e24-a67e-923cb9a226a7",
             "type": "string"
           },
           "allow": {
@@ -41,7 +40,7 @@
     "AutomaticUploadBandwidthPercentage": {
       "title": "Automatic Upload Bandwidth Percentage",
       "default": 20,
-      "description": "Confirgers sync app to automatically set the amount of bandwidth that can be used for uploading files, based on available bandwidth. Define a number between 1 and 99.",
+      "description": "This setting enables the sync app to automatically set the amount of bandwidth that can be used for uploading files, based on available bandwidth. To enable this setting, you must define a number between 1 and 99 that determines the percentage of bandwidth the sync app can use out of the total available bandwidth.",
       "property_order": 10,
       "type": "integer",
       "options": {
@@ -57,7 +56,7 @@
     "BlockExternalSync": {
       "title": "Allow S/MIME certificates without a matching email address",
       "default": true,
-      "description": "Prevents the sync app from syncing libraries and folders shared from other organizations. Set the setting's value to True, to prevent the users from syncing OneDrive, SharePoint libraries, and folders with organizations other than the user's own organization.",
+      "description": "This setting prevents the sync app from syncing libraries and folders shared from other organizations. Set the setting's value to True, to prevent the users from syncing OneDrive, SharePoint libraries, and folders with organizations other than the user's own organization. Set the value to False or don't enable the setting to allow the OneDrive, and SharePoint files to be synced with other organizations also.",
       "property_order": 15,
       "type": "boolean",
       "options": {
@@ -72,7 +71,7 @@
     },
     "BlockTenantList": {
       "title": "Blocked Tenants List",
-      "description": "Prevents the uploading of files to organizations that are included in blocked tenant IDs list. If account has already been setup, files stop syncing. Does NOT work if Allow syncing OneDrive accounts for only specific organizations setting enabled. Do NOT enable both settings at the same time.",
+      "description": "This setting prevents the users from uploading files to organizations that are included in the blocked tenant IDs list. If you enable this setting, the users get an error if they attempt to add an account from an organization that is blocked. If a user has already added an account for a blocked organization, the files stop syncing. This setting does NOT work if you have Allow syncing OneDrive accounts for only specific organizations setting enabled. Do NOT enable both settings at the same time.",
       "property_order": 20,
       "type": "array",
       "items": {
@@ -107,7 +106,7 @@
     },
     "DefaultFolder": {
       "title": "Default Folder Location",
-      "description": "Specifies the default location of the OneDrive folder. The parameters are TenantID and DefaultFolderPath. The TenantID value is a string that determines the tenants to whom the default folder location setting is applicable. The DefaultFolderPath value is a string that specifies the default location of the folder. The following are the conditions governing the default folder location: -Mac app store: The path must already exist when the user is setting up the sync app. -Standalone: The path will be created (if it doesn't already exist) after the user sets up the sync app. Only with the Standalone sync app you can prevent users from changing the location.",
+      "description": "This setting specifies the default location of the OneDrive folder for each organization. The parameters are TenantID and DefaultFolderPath. The TenantID value is a string that determines the tenants to whom the default folder location setting is applicable. The DefaultFolderPath value is a string that specifies the default location of the folder. The following are the conditions governing the default folder location: -Mac app store: The path must already exist when the user is setting up the sync app. -Standalone: The path will be created (if it doesn't already exist) after the user sets up the sync app. Only with the Standalone sync app you can prevent users from changing the location.",
       "property_order": 25,
       "type": "array",
       "maxItems": 1,
@@ -122,7 +121,7 @@
           },
           "TenantId": {
             "title": "Tenant ID",
-            "default": "Tenant ID Here",
+            "default": "e.g. 0344bcc1-e70b-4e24-a67e-923cb9a226a7",
             "type": "string"
           }
         },
@@ -144,7 +143,7 @@
     "DisableHydrationToast": {
       "title": "Disable Hydration Toast",
       "default": true,
-      "description": "Prevents toasts from appearing.",
+      "description": "This setting prevents toasts from appearing when applications cause file contents to be downloaded. If you set the setting's value to True, toasts do not appear when applications trigger the download of file contents.",
       "property_order": 30,
       "type": "boolean",
       "options": {
@@ -157,10 +156,26 @@
         }
       ]
     },
+    "DisableAutoConfig": {
+      "title": "Disable AutoConfig",
+      "default": 0,
+      "description": "This setting determines whether or not the sync app can automatically sign in. If you set this setting's value to 1, the sync app is prevented from automatically signing with an existing Microsoft Azure Active Directory (Azure AD) credential that is made available to Microsoft applications.",
+      "property_order": 31,
+      "type": "integer",
+      "options": {
+        "infoText": "Key: DisableAutoConfig"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#disableautoconfig"
+        }
+      ]
+    },
     "DisablePersonalSync": {
       "title": "Disable Personal Sync",
       "default": true,
-      "description": "Blocks user from signing in and syncing files in personal OneDrive accounts. If this setting has been configured after a user has set up sync with a personal account, the user gets signed out. If set to True, users are prevented from adding or syncing personal accounts.",
+      "description": "This setting blocks user from signing in and syncing files in personal OneDrive accounts. If this setting has been configured after a user has set up sync with a personal account, the user gets signed out. If you set the setting's value to True, the users are prevented from adding or syncing personal accounts.",
       "property_order": 35,
       "type": "boolean",
       "options": {
@@ -176,7 +191,7 @@
     "DisableTutorial": {
       "title": "Disable Tutorial",
       "default": true,
-      "description": "Prevents the tutorial from being shown to the users after they set up OneDrive.",
+      "description": "This setting prevents the tutorial from being shown to the users after they set up OneDrive. If you set this setting's value to True, the tutorial is blocked from being shown to the users after they set up the OneDrive.",
       "property_order": 40,
       "type": "boolean",
       "options": {
@@ -224,7 +239,7 @@
     "EnableODIgnore": {
       "title": "Enabled Ignored Files",
       "default": "e.g. *.zip",
-      "description": "Configure to prevent the OneDrive sync app from uploading certain files to OneDrive or SharePoint. You can enter complete names, such as 'setup.exe' or use the asterisk (*) as a wildcard character to represent a series of characters, such as *.pst. Keywords aren't case-sensitive. If you enable this setting, the sync app doesn't upload new files that match the keywords you specified. No errors appear for the skipped files, and the files remain in the local OneDrive folder. In Finder, the files appear with an 'Excluded from sync' icon.",
+      "description": "This setting lets you enter keywords to prevent the OneDrive sync app from uploading certain files to OneDrive or SharePoint. You can enter complete names, such as 'setup.exe' or use the asterisk (*) as a wildcard character to represent a series of characters, such as *.pst. Keywords aren't case-sensitive. If you enable this setting, the sync app doesn't upload new files that match the keywords you specified. No errors appear for the skipped files, and the files remain in the local OneDrive folder. In Finder, the files appear with an 'Excluded from sync' icon.",
       "property_order": 55,
       "type": "array",
       "items": {
@@ -244,7 +259,7 @@
     "FilesOnDemandEnabled": {
       "title": "Enable Files On Demand",
       "default": true,
-      "description": "Specifies whether Files On-Demand is enabled. If not set, Files On-Demand will be enabled automatically, and users can chose to opt out. If you set to True, FilesOnDemand is enabled and the users who set up the sync app can view the online-only files, by default. If set to False, FilesOnDemand is disabled and the users won't be able to turn it on. Beginning in macOS Monterey 12.1, Files On-Demand will be the default and there will not be a setting for users to turn it off.",
+      "description": "This setting specifies whether Files On-Demand is enabled. If you don't set this setting, Files On-Demand will be enabled automatically as we roll out the feature, and users can turn the setting on or off. If you set this setting to True, FilesOnDemand is enabled and the users who set up the sync app can view the online-only files, by default. If you set this setting to False, FilesOnDemand is disabled and the users won't be able to turn it on.",
       "property_order": 60,
       "type": "boolean",
       "options": {
@@ -257,10 +272,26 @@
         }
       ]
     },
+    "EnableSyncAdminReports": {
+      "title": "Enable Sync Admin Reports",
+      "default": false,
+      "description": "This setting specifies whether Sync Admin Reports is enabled. If you enable this setting, OneDrive sync health reports will be sent to OneDrive sync health dashboard in the Microsoft 365 Apps admin center.",
+      "property_order": 62,
+      "type": "boolean",
+      "options": {
+        "infoText": "Key: EnableSyncAdminReports"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://docs.microsoft.com/en-us/onedrive/sync-health?tabs=macos"
+        }
+      ]
+    },
     "HideDockIcon": {
       "title": "Hide Dock Icon",
       "default": true,
-      "description": "Specifies if dock icon for OneDrive is shown. If set to True, the OneDrive dock icon is hidden even if the app is running.",
+      "description": "This setting specifies whether a dock icon for OneDrive is shown. If you set this setting's value to True, the OneDrive dock icon is hidden even if the app is running.",
       "property_order": 65,
       "type": "boolean",
       "options": {
@@ -276,7 +307,7 @@
     "HydrationDisallowedApps": {
       "title": "Hydration Disallowed Apps",
       "default": "e.g. [{\"ApplicationId\":\"appId\",\"MaxBundleVersion\":\"1.1\",\"MaxBuildVersion\":\"1.0\"}]",
-      "description": "Prevents automatically downloading online-only files. Define a string in JSON format. For example: [{\"ApplicationId\":\"appId\",\"MaxBundleVersion\":\"1.1\",\"MaxBuildVersion\":\"1.0\"}] \"appID\" can be either the BSD process name or the bundle display name. \"MaxBuildVersion\" denotes the maximum build version of the app that will be blocked. \"MaxBundleVersion\" denotes the maximum bundle version of the app that will be blocked.",
+      "description": "This setting prevents apps from automatically downloading online-only files. You can use this setting to lock down apps that don't work correctly with your deployment of Files On-Demand. To enable this setting, you must define a string in JSON format. For example: [{\"ApplicationId\":\"appId\",\"MaxBundleVersion\":\"1.1\",\"MaxBuildVersion\":\"1.0\"}] \"appID\" can be either the BSD process name or the bundle display name. \"MaxBuildVersion\" denotes the maximum build version of the app that will be blocked. \"MaxBundleVersion\" denotes the maximum bundle version of the app that will be blocked.",
       "property_order": 70,
       "type": "string",
       "options": {
@@ -289,10 +320,74 @@
         }
       ]
     },
+    "KFMBlockOptIn": {
+      "title": "Known Folder Move - Block Opt In",
+      "default": "1 or 2",
+      "description": "This setting prevents users from moving their Documents and Desktop folders to any OneDrive account. If you enable KFMBlockOptIn, users aren't prompted to protect their Desktop and Documents folders, and the Manage backup command is disabled. If the user has already moved their Desktop and Documents folders, the files in those folders will remain in OneDrive. This setting doesn't take effect if you've enabled KFMOptInWithWizard or KFMSilentOptIn. If you set this setting's value to 1, it will prevent Folder Backup. If you set the value to 2, it will redirect any folders previously used for Folder Backup back to the user’s device and stop the setting from running further.",
+      "property_order": 71,
+      "type": "integer",
+      "options": {
+        "infoText": "Key: KFMBlockOptIn"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#kfmblockoptin"
+        }
+      ]
+    },
+    "KFMBlockOptOut": {
+      "title": "Known Folder Move - Block Opt Out",
+      "default": null,
+      "description": "This setting forces users to keep their Documents and Desktop folders directed to OneDrive. If you enable this setting, the Stop Backup button in the Manage Folder Backup window is disabled, and users receive an error if they try to stop syncing their Desktop or Documents folder.",
+      "property_order": 72,
+      "type": "boolean",
+      "options": {
+        "infoText": "Key: KFMBlockOptOut"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#kfmblockoptout"
+        }
+      ]
+    },
+    "KFMOptInWithWizard": {
+      "title": "Known Folder Move - Opt In With Wizard",
+      "default": "(tenantID)",
+      "description": "This setting displays a wizard that prompts users to move their Documents and Desktop folders to OneDrive. If you enable this setting and provide your tenant ID, users who are syncing their OneDrive will see the Folder Backup wizard window when they're signed in. If they close the window, a reminder notification appears in the Sync Activity Center until they move their Desktop and Documents folders.",
+      "property_order": 73,
+      "type": "string",
+      "options": {
+        "infoText": "Key: KFMOptInWithWizard"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#kfmoptinwithwizard"
+        }
+      ]
+    },
+    "KFMSilentOptIn": {
+      "title": "Known Folder Move - Silent Opt In",
+      "default": "(tenantID)",
+      "description": "",
+      "property_order": 74,
+      "type": "string",
+      "options": {
+        "infoText": "Key: KFMSilentOptIn"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://learn.microsoft.com/en-us/sharepoint/deploy-and-configure-on-macos#kfmsilentoptin"
+        }
+      ]
+    },
     "OpenAtLogin": {
       "title": "Open At Login",
       "default": true,
-      "description": "Specifies whether OneDrive starts automatically when the user logs in. If you set this setting's value to True, OneDrive starts automatically when the user logs in on Mac.",
+      "description": "This setting specifies whether OneDrive starts automatically when the user logs in. If you set this setting's value to True, OneDrive starts automatically when the user logs in on Mac.",
       "property_order": 75,
       "type": "boolean",
       "options": {
@@ -351,6 +446,32 @@
           "rel": "More information",
           "href": "https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#sharepointonpremtenantname"
         }
+      ]
+    },
+    "Tier": {
+      "title": "Tier",
+      "default": "Production",
+      "description": "This setting lets you specify the ring for users in your organization. The OneDrive sync app updates to the public through three rings; first to Insiders, then to Production, and finally to Deferred. When you enable this setting and select a ring, users aren't able to change it.",
+      "property_order": 92,
+      "type": "string",
+      "options": {
+        "enum_titles": [
+          "Insiders Ring",
+          "Production Ring",
+          "Deferred Ring"
+        ],
+        "infoText": "Key name: Tier"
+      },
+      "links": [
+        {
+          "rel": "More information",
+          "href": "https://docs.microsoft.com/en-us/onedrive/deploy-and-configure-on-macos#tier"
+        }
+      ],
+      "enum": [
+        "Insiders",
+        "Production",
+        "Deferred"
       ]
     },
     "UploadBandwidthLimited": {
