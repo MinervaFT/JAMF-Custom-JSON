@@ -1,0 +1,96 @@
+{
+  "title": "com.apple.applicationaccess",
+  "description": "",
+  "properties": {
+    "enforcedSoftwareUpdateNonOSDeferredInstallDelay": {
+      "title": "enforcedSoftwareUpdateNonOSDeferredInstallDelay",
+      "description": "This restriction allows the admin to set how many days to delay an app software update on the device. When this restriction is in place the user sees a non-OS software update only after the specified delay after the release of the software. This value controls the delay for forceDelayedAppSoftwareUpdates. Default 30 maximum 90.",
+      "property_order": 5,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer"
+        }
+      ]
+    },
+    "enforcedSoftwareUpdateDelay": {
+      "title": "enforcedSoftwareUpdateDelay",
+      "description": "Sets how many days to delay a software update on the device. With this restriction in place, the user doesn't see a software update until the specified number of days after the software update release date. This value is used by forceDelayedAppSoftwareUpdates and forceDelayedSoftwareUpdates. 90 max. ",
+      "property_order": 10,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer"
+        }
+      ]
+    },
+    "forceDelayedAppSoftwareUpdates": {
+      "title": "forceDelayedAppSoftwareUpdates",
+      "description": "",
+      "property_order": 15,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "forceDelayedMajorSoftwareUpdates": {
+      "title": "forceDelayedMajorSoftwareUpdates",
+      "description": "",
+      "property_order": 20,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "forceDelayedSoftwareUpdates": {
+      "title": "forceDelayedSoftwareUpdates",
+      "description": "",
+      "property_order": 25,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "boolean"
+        }
+      ]
+    },
+    "enforcedSoftwareUpdateMajorOSDeferredInstallDelay": {
+      "title": "enforcedSoftwareUpdateMajorOSDeferredInstallDelay",
+      "description": "This restriction allows the admin to set how many days to delay a major software update on the device. When this restriction is in place the user sees a software update only after the specified delay after the release of the software update. This value controls the delay for forceDelayedMajorSoftwareUpdates. Default 30. Max 90",
+      "property_order": 30,
+      "anyOf": [
+        {
+          "type": "null",
+          "title": "Not Configured"
+        },
+        {
+          "title": "Configured",
+          "type": "integer"
+        }
+      ]
+    }
+  }
+}
