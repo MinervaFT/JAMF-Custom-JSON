@@ -1,0 +1,90 @@
+{
+	"title": "com.apple.applicationaccess",
+	"description": "",
+	"properties": {
+        "allowWritingTools": {
+            "title": "allowWritingTools",
+            "description": "",
+            "property_order": 5,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowGenmoji": {
+            "title": "allowGenmoji",
+            "description": "",
+            "property_order": 10,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowMailSummary": {
+            "title": "allowMailSummary",
+            "description": "",
+            "property_order": 15,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowAssistant": {
+            "title": "allowAssistant",
+            "description": "",
+            "property_order": 20,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowImagePlayground": {
+            "title": "allowImagePlayground",
+            "description": "",
+            "property_order": 25,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowExternalIntelligenceIntegrations": {
+            "title": "allowExternalIntelligenceIntegrations",
+            "description": "",
+            "property_order": 30,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        },
+        "allowExternalIntelligenceIntegrationsSignIn": {
+            "title": "allowExternalIntelligenceIntegrationsSignIn",
+            "description": "",
+            "property_order": 35,
+            "anyOf": [
+                {"type": "null", "title": "Not Configured"},
+                {
+                    "title": "Configured",
+                    "type": "boolean"
+                }
+            ]
+        }
+	}
+}
